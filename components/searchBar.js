@@ -2,6 +2,7 @@ import { SearchRecipes } from "./searchEngine.js"
 import { Categories } from "./categories.js"
 import { Cards } from "./cards.js"
 
+
 export async function SearchBar () {
 
     const searchInput = document.querySelector('.searchInput')
@@ -13,7 +14,6 @@ export async function SearchBar () {
             const recipes = await SearchRecipes(searchInput.value)
             Cards(recipes)
             Categories(recipes)
-
         }
     })
 
@@ -23,15 +23,15 @@ export async function SearchBar () {
         const recipes = await SearchRecipes(searchInput.value)
         Cards(recipes)
         Categories(recipes)
-
     })
-  
+
     const recipes = await SearchRecipes(searchInput.value)
     Cards(recipes)
-    Categories(recipes)
+    await Categories(recipes)
 
 
-    
 }
+
+
 
 document.addEventListener('DOMContentLoaded', SearchBar)

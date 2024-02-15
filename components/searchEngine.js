@@ -1,6 +1,8 @@
 import { MockCaller } from "../_services/mockCaller.js"
 
+
 export async function SearchRecipes(input) {
+
 
     let recipes = await MockCaller()
 
@@ -16,4 +18,3 @@ export async function SearchRecipes(input) {
     return recipes
 
 }
-

@@ -40,7 +40,5 @@ export async function Cards(recipes) {
     
         card.innerHTML = cardContent
         cardContainer.appendChild(card)
-
     })
-
 }
