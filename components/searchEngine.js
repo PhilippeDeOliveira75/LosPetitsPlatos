@@ -6,14 +6,19 @@ export async function SearchRecipes(input) {
     let recipes = await MockCaller()
 
     let tags = await UpdateTagValues()
+    console.log(tags)
 
-    // Filtrer les recettes en fonction de l'input
     if (input.length >= 3) { 
-        recipes = recipes.filter(recipe => {
-            return recipe.name.toLowerCase().includes(input.toLowerCase()) ||
+        let filteredRecipes = []
+        for (let i = 0; i < recipes.length; i++) {
+            let recipe = recipes[i]
+            if (recipe.name.toLowerCase().includes(input.toLowerCase()) ||
                 recipe.description.toLowerCase().includes(input.toLowerCase()) ||
-                recipe.ingredients.some(ingredientObj => ingredientObj.ingredient.toLowerCase().includes(input.toLowerCase()))
-        })
+                recipe.ingredients.some(ingredientObj => ingredientObj.ingredient.toLowerCase().includes(input.toLowerCase()))) {
+                filteredRecipes.push(recipe)
+            }
+        }
+        recipes = filteredRecipes
     }
 
     // Filtrer les recettes en fonction des tags
@@ -40,3 +45,26 @@ export async function SearchRecipes(input) {
 
     return recipes
 }
+/*export async function SearchRecipes(input) {
+
+    let recipes = await MockCaller()
+
+    let tags = await UpdateTagValues()
+    console.log(tags)
+
+if (input.length >= 3) { 
+    let filteredRecipes = [];
+    for (let i = 0; i < recipes.length; i++) {
+        let recipe = recipes[i];
+        if (recipe.name.toLowerCase().includes(input.toLowerCase()) ||
+            recipe.description.toLowerCase().includes(input.toLowerCase()) ||
+            recipe.ingredients.some(ingredientObj => ingredientObj.ingredient.toLowerCase().includes(input.toLowerCase()))) {
+            filteredRecipes.push(recipe);
+        }
+    }
+    recipes = filteredRecipes;
+}
+    console.log(recipes)
+
+    return recipes
+}*/
