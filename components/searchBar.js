@@ -1,37 +1,16 @@
-import { SearchRecipes } from "./searchEngine.js"
-import { Categories } from "./categories.js"
-import { Cards } from "./cards.js"
-
-
-export async function SearchBar () {
-
-    const searchInput = document.querySelector('.searchInput')
-    const clearIcon = document.querySelector('.clearIcon')
-
-    searchInput.addEventListener('input', async function() {
+export function handleInput(searchInput, clearIcon, renderFunction) {
+    searchInput.addEventListener('input', function() {
         if (searchInput.value !== '') { 
             clearIcon.style.display = 'block'
-            const recipes = await SearchRecipes(searchInput.value)
-            Cards(recipes)
-            Categories(recipes)
+            renderFunction(searchInput.value)
         }
     })
-
-    clearIcon.addEventListener('click', async function() {
-        searchInput.value = ''
-        this.style.display = 'none'
-        const recipes = await SearchRecipes(searchInput.value)
-        Cards(recipes)
-        Categories(recipes)
-    })
-
-    const recipes = await SearchRecipes(searchInput.value)
-    Cards(recipes)
-    await Categories(recipes)
-
-
 }
 
-
-
-document.addEventListener('DOMContentLoaded', SearchBar)
+export function handleClear(clearIcon, searchInput, renderFunction) {
+    clearIcon.addEventListener('click', function() {
+        searchInput.value = ''
+        this.style.display = 'none'
+        renderFunction(searchInput.value)
+    })
+}

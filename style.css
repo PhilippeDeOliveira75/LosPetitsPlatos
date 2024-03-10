@@ -325,16 +325,26 @@ input:focus {
     cursor: pointer;
 }
 
-.clearTagSearch {
-    width: 8px;
-    height: 8px;
+.clearCategoryIcon{
+    top: 14px;
+    right: 30px;
     position: absolute;
-    right: 32px;
-    top: 13px;
+    display: none;
     cursor: pointer;
 }
 
+.noResult {
+    display: none;
+    font-family: 'Manrope', sans-serif;
+    position: absolute;
+    top: 50px;
+    left: 16px;
+    margin-bottom: 20px;
+
+}
+
 .w-categoryList {
+    min-height: 110px;
     position: absolute;
     background-color: #FFFFFF;
     z-index: 1000;
