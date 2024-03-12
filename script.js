@@ -2,6 +2,7 @@ import { SearchRecipes } from "./components/searchEngine.js"
 import { Categories } from "./components/categories.js"
 import { Cards } from "./components/cards.js"
 import { Tags } from "./components/tags.js"
+import { Total } from "./components/total.js"
 import { handleInput, handleClear } from "./components/searchBar.js"
 
 async function render(input) {
@@ -9,6 +10,7 @@ async function render(input) {
     Cards(recipes)
     await Categories(recipes)
     await Tags()
+    await Total(recipes)
 }
 
 async function initializeApp() {

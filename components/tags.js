@@ -1,6 +1,7 @@
 import { SearchRecipes } from './searchEngine.js'
 import { Cards } from './cards.js'
 import { Categories } from './categories.js'
+import { Total } from './total.js'
 
 function createTag(tagValue) {
     let tagList = document.createElement('li')
@@ -38,6 +39,7 @@ function SelectTag(event, tagType) {
         Cards(recipes)
         Categories(recipes)
         Tags()
+        Total(recipes)
     })
 }
 
@@ -60,6 +62,7 @@ function DeleteTag(event, tagType) {
         Cards(recipes)
         Categories(recipes)
         Tags()
+        Total(recipes)
     })
 }
 

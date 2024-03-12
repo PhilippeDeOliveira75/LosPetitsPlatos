@@ -40,3 +40,27 @@ export async function SearchRecipes(input) {
 
     return recipes
 }
+
+/*export async function SearchRecipes(input) {
+
+    let recipes = await MockCaller()
+
+    let tags = await UpdateTagValues()
+    console.log(tags)
+
+if (input.length >= 3) { 
+    let filteredRecipes = [];
+    for (let i = 0; i < recipes.length; i++) {
+        let recipe = recipes[i];
+        if (recipe.name.toLowerCase().includes(input.toLowerCase()) ||
+            recipe.description.toLowerCase().includes(input.toLowerCase()) ||
+            recipe.ingredients.some(ingredientObj => ingredientObj.ingredient.toLowerCase().includes(input.toLowerCase()))) {
+            filteredRecipes.push(recipe);
+        }
+    }
+    recipes = filteredRecipes;
+}
+    console.log(recipes)
+
+    return recipes
+}*/
