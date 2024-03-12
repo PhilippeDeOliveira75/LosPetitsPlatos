@@ -6,7 +6,7 @@ export async function Total (recipes) {
 
     let totalContent = `
         <div>
-            <h3 class="total" >${total} ${total <= 2 ? 'recette' : 'recettes'}</h3>
+            <h3 class="total" >${total} ${total <= 1 ? 'recette' : 'recettes'}</h3>
         </div>
     `
 
